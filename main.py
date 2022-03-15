@@ -14,5 +14,5 @@ if __name__ == '__main__':
 
     HSK_text_process.extract_character(input, highlighted, statistic, statistics_opt = 2)
     words = HSK_text_process.read_highlighted_words(input)
-    HSK_text_process.find_from_html('error_text.csv', words, 'tmp3.csv')
+    #HSK_text_process.find_from_html('error_text.csv', words, 'tmp3.csv')
     HSK_text_process.find_from_html(html, words, output)
