@@ -16,7 +16,10 @@ main.py just combine find_highlighted_words.py and search_from_html.py together 
 
 
 To run the code: 
-python3 main.py --input File1_chinese_text1.txt --highlighted tmp1.csv --statistic tmp2.csv --html File2_hsk_2_by_chapter_a-_vocabulary_20220314050202.csv --output tmp3.cvs 
+
+python3 main.py --input File1_chinese_text.txt --highlighted tmp1.csv --statistic tmp2.csv --html File2_hsk_2_by_chapter_a-_vocabulary_20220314050202.csv --output tmp3.cvs 
+
+
 
 
 
