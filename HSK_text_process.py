@@ -177,7 +177,7 @@ def find_from_html(file_name, words, output_file):
             # if the line is in correct format, search whether this line include the word we want to search for
             for word in words:
                 if word in line:
-                    print(line)
+                    # print(line)
                     # if this line includes the word we are searching for, then append it to result_lines as one result clause which will be dump to the result file
                     result_lines.append(line)
                     break
