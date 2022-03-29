@@ -3,6 +3,7 @@ import json
 import csv
 from datetime import datetime
 from datetime import timezone
+from dateutil import parser as dtparse
 import re
 
 
@@ -36,13 +37,8 @@ class ParseConversation:
                 if not message.get('displayName', ''):
                     message['displayName'] = conversation['displayName']
 
-                if len(message['originalarrivaltime'][:-1]) == 23:
-                    message['originalarrivaltime'] = datetime.fromisoformat(message['originalarrivaltime'][:-1]).astimezone(timezone.utc)
-                else:
-                    time_string = message['originalarrivaltime'][:-1].ljust(23,"0")
-                    message['originalarrivaltime'] = datetime.fromisoformat(time_string).astimezone(timezone.utc)
+                message['originalarrivaltime'] = dtparse.parse(message['originalarrivaltime'])
 
-            conversation['MessageList'] = sorted(message_list, key=lambda d: d['originalarrivaltime'])
 
     def ignore_non_chinese(self) -> None:
         """ Function to remove non chinese message in case ignore_non_chinese flag is
