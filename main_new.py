@@ -29,7 +29,7 @@ class ParseConversation:
 
         for conversation in self.conversations:
             message_list = conversation.get('MessageList', [])
-            message_list = list(filter(lambda x: x['messagetype'] =='RichText', message_list))  # filtering out messages that have RichText format
+            message_list = list(filter(lambda x: x['messagetype'] == 'RichText', message_list))  # filtering out messages that have RichText format
 
             for message in message_list:  # converting original arrival time to a datetime object
 
@@ -38,6 +38,7 @@ class ParseConversation:
                     message['displayName'] = conversation['displayName']
 
                 message['originalarrivaltime'] = dtparse.parse(message['originalarrivaltime'])
+            conversation['MessageList'] = message_list
 
 
     def ignore_non_chinese(self) -> None:
